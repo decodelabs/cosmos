@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace DecodeLabs\Cosmos\Extension;
 
+use DecodeLabs\Cosmos;
 use DecodeLabs\Cosmos\Locale;
 use DecodeLabs\Exceptional;
 use NumberFormatter;
