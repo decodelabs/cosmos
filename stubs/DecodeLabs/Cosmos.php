@@ -28,7 +28,22 @@ class Cosmos implements Proxy
     public static function getLocale(): LocalePlugin {
         return static::$instance->getLocale();
     }
+    public static function normalizeLocale(LocalePlugin|string|null $locale = NULL): LocalePlugin {
+        return static::$instance->normalizeLocale(...func_get_args());
+    }
+    public static function normalizeLocaleString(LocalePlugin|string|null $locale = NULL): string {
+        return static::$instance->normalizeLocaleString(...func_get_args());
+    }
     public static function setTimezone(TimezonePlugin|string $timezone): Inst {
         return static::$instance->setTimezone(...func_get_args());
+    }
+    public static function getTimezone(): TimezonePlugin {
+        return static::$instance->getTimezone();
+    }
+    public static function normalizeTimezone(TimezonePlugin|string|null $timezone): TimezonePlugin {
+        return static::$instance->normalizeTimezone(...func_get_args());
+    }
+    public static function normalizeTimezoneString(TimezonePlugin|string|null $timezone): string {
+        return static::$instance->normalizeTimezoneString(...func_get_args());
     }
 };

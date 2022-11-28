@@ -10,6 +10,8 @@
     }],
     "require": {
         "php": "^8.0",
+        "ext-intl": "*",
+
         "decodelabs/exceptional": "^0.4.3",
         "decodelabs/glitch-support": "^0.4.3",
         "decodelabs/veneer": "^0.10.16"

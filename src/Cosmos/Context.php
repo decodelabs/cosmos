@@ -12,6 +12,7 @@ namespace DecodeLabs\Cosmos;
 use DateTimeZone as Timezone;
 use DecodeLabs\Veneer;
 use DecodeLabs\Veneer\Plugin;
+use IntlTimeZone;
 use Locale as SysLocale;
 
 class Context
@@ -62,6 +63,30 @@ class Context
         return $this->locale;
     }
 
+    /**
+     * Normalize locale
+     */
+    public function normalizeLocale(
+        string|Locale|null $locale = null
+    ): Locale {
+        if ($locale === null) {
+            $locale = $this->getLocale();
+        } elseif (is_string($locale)) {
+            $locale = new Locale($locale);
+        }
+
+        return $locale;
+    }
+
+    /**
+     * Normalize locale
+     */
+    public function normalizeLocaleString(
+        string|Locale|null $locale = null
+    ): string {
+        return (string)$this->normalizeLocale($locale);
+    }
+
 
 
     /**
@@ -73,11 +98,61 @@ class Context
         string|Timezone $timezone
     ): static {
         if (!$timezone instanceof Timezone) {
-            $timezone = new Timezone($timezone);
+            $timezone = $this->createTimezone($timezone);
         }
 
         $this->timezone = $timezone;
 
         return $this;
+    }
+
+    /**
+     * Get timezone
+     */
+    public function getTimezone(): Timezone
+    {
+        return $this->timezone;
+    }
+
+    /**
+     * Normalize timezone
+     */
+    public function normalizeTimezone(
+        string|Timezone|null $timezone
+    ): Timezone {
+        if ($timezone === null) {
+            $timezone = $this->getTimezone();
+        } elseif (is_string($timezone)) {
+            $timezone = $this->createTimezone($timezone);
+        }
+
+        return $timezone;
+    }
+
+    /**
+     * Normalize timezone
+     */
+    public function normalizeTimezoneString(
+        string|Timezone|null $timezone
+    ): string {
+        return $this->normalizeTimezone($timezone)->getName();
+    }
+
+    /**
+     * Parse and create DateTimeZone
+     */
+    protected function createTimezone(string $timezone): Timezone
+    {
+        if (preg_match('/^[a-z]{3}$/', $timezone)) {
+            $timezone = strtoupper($timezone);
+        } elseif (preg_match('|^([a-z\-]+)/([a-z\-]+)$|', $timezone, $matches)) {
+            $timezone = ucfirst($matches[1]) . '/' . ucfirst($matches[2]);
+        }
+
+        if (false !== ($canon = IntlTimeZone::getCanonicalID($timezone))) {
+            $timezone = $canon;
+        }
+
+        return new Timezone($timezone);
     }
 }
