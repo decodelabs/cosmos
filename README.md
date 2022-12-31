@@ -3,7 +3,7 @@
 [![PHP from Packagist](https://img.shields.io/packagist/php-v/decodelabs/cosmos?style=flat)](https://packagist.org/packages/decodelabs/cosmos)
 [![Latest Version](https://img.shields.io/packagist/v/decodelabs/cosmos.svg?style=flat)](https://packagist.org/packages/decodelabs/cosmos)
 [![Total Downloads](https://img.shields.io/packagist/dt/decodelabs/cosmos.svg?style=flat)](https://packagist.org/packages/decodelabs/cosmos)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/decodelabs/cosmos/Integrate)](https://github.com/string|int|floatdecodelabs/cosmos/actions/workflows/integrate.yml)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/decodelabs/cosmos/integrate.yml?branch=develop)](https://github.com/string|int|floatdecodelabs/cosmos/actions/workflows/integrate.yml)
 [![PHPStan](https://img.shields.io/badge/PHPStan-enabled-44CC11.svg?longCache=true&style=flat)](https://github.com/phpstan/phpstan)
 [![License](https://img.shields.io/packagist/l/decodelabs/cosmos?style=flat)](https://packagist.org/packages/decodelabs/cosmos)
 
