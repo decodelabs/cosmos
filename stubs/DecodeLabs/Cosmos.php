@@ -15,7 +15,7 @@ class Cosmos implements Proxy
 {
     use ProxyTrait;
 
-    const VENEER = 'DecodeLabs\Cosmos';
+    const VENEER = 'DecodeLabs\\Cosmos';
     const VENEER_TARGET = Inst::class;
 
     public static Inst $instance;
