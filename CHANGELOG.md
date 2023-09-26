@@ -1,3 +1,5 @@
+* Converted phpstan doc comments to generic
+
 ## v0.1.2 (2022-11-28)
 * Fixed Cosmos Veneer ref in NumberTrait
 

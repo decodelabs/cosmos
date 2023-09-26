@@ -99,7 +99,7 @@ trait TimeTrait
     }
 
     /**
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function fullDateTime(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -110,7 +110,7 @@ trait TimeTrait
     }
 
     /**
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function fullDate(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -121,7 +121,7 @@ trait TimeTrait
     }
 
     /**
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function fullTime(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -133,7 +133,7 @@ trait TimeTrait
 
 
     /**
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function longDateTime(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -144,7 +144,7 @@ trait TimeTrait
     }
 
     /**
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function longDate(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -155,7 +155,7 @@ trait TimeTrait
     }
 
     /**
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function longTime(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -167,7 +167,7 @@ trait TimeTrait
 
 
     /**
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function mediumDateTime(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -178,7 +178,7 @@ trait TimeTrait
     }
 
     /**
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function mediumDate(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -189,7 +189,7 @@ trait TimeTrait
     }
 
     /**
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function mediumTime(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -201,7 +201,7 @@ trait TimeTrait
 
 
     /**
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function shortDateTime(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -212,7 +212,7 @@ trait TimeTrait
     }
 
     /**
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function shortDate(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -223,7 +223,7 @@ trait TimeTrait
     }
 
     /**
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function shortTime(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -237,7 +237,7 @@ trait TimeTrait
 
 
     /**
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function dateTime(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -248,7 +248,7 @@ trait TimeTrait
     }
 
     /**
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function date(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -259,7 +259,7 @@ trait TimeTrait
     }
 
     /**
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function time(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -276,7 +276,7 @@ trait TimeTrait
     /**
      * Format interval since date
      *
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function since(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -290,7 +290,7 @@ trait TimeTrait
     /**
      * Format interval since date
      *
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function sinceAbs(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -304,7 +304,7 @@ trait TimeTrait
     /**
      * Format interval since date
      *
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function sinceAbbr(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -318,7 +318,7 @@ trait TimeTrait
     /**
      * Format interval until date
      *
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function until(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -332,7 +332,7 @@ trait TimeTrait
     /**
      * Format interval until date
      *
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function untilAbs(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -346,7 +346,7 @@ trait TimeTrait
     /**
      * Format interval until date
      *
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function untilAbbr(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -362,7 +362,7 @@ trait TimeTrait
     /**
      * Format interval
      *
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     protected function formatNowInterval(
         DateTime|DateInterval|string|Stringable|int|null $date,
@@ -439,7 +439,7 @@ trait TimeTrait
     /**
      * Format interval until date
      *
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function between(
         DateTime|DateInterval|string|Stringable|int|null $date1,
@@ -453,7 +453,7 @@ trait TimeTrait
     /**
      * Format interval until date
      *
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     public function betweenAbbr(
         DateTime|DateInterval|string|Stringable|int|null $date1,
@@ -467,7 +467,7 @@ trait TimeTrait
     /**
      * Format interval until date
      *
-     * @phpstan-return TReturn|null
+     * @return TReturn|null
      */
     protected function formatBetweenInterval(
         DateTime|DateInterval|string|Stringable|int|null $date1,
