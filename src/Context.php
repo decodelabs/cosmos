@@ -10,10 +10,14 @@ declare(strict_types=1);
 namespace DecodeLabs\Cosmos;
 
 use DateTimeZone as Timezone;
+use DecodeLabs\Cosmos;
 use DecodeLabs\Veneer;
 use DecodeLabs\Veneer\Plugin;
 use IntlTimeZone;
 use Locale as SysLocale;
+
+// Register the Veneer facade
+Veneer::register(Context::class, Cosmos::class);
 
 class Context
 {
