@@ -16,9 +16,6 @@ use DecodeLabs\Veneer\Plugin;
 use IntlTimeZone;
 use Locale as SysLocale;
 
-// Register the Veneer facade
-Veneer::register(Context::class, Cosmos::class);
-
 class Context
 {
     #[Plugin]
@@ -160,3 +157,7 @@ class Context
         return new Timezone($timezone);
     }
 }
+
+
+// Register the Veneer facade
+Veneer::register(Context::class, Cosmos::class);
