@@ -1,5 +1,6 @@
 * Made PHP8.1 minimum version
 * Refactored package file structure
+* Updated dependency list
 
 ## v0.1.3 (2023-09-26)
 * Converted phpstan doc comments to generic
