@@ -2,14 +2,14 @@
     "name": "decodelabs/cosmos",
     "description": "Internationalisation made simple",
     "type": "library",
-    "keywords": [],
+    "keywords": [ ],
     "license": "proprietary",
-    "authors": [{
-        "name": "Tom Wright",
-        "email": "tom@inflatablecookie.com"
-    }],
+    "authors": [ {
+            "name": "Tom Wright",
+            "email": "tom@inflatablecookie.com"
+        } ],
     "require": {
-        "php": "^8.0",
+        "php": "^8.1",
         "ext-intl": "*",
 
         "decodelabs/exceptional": "^0.4.3",
@@ -17,15 +17,14 @@
         "decodelabs/veneer": "^0.10.16"
     },
     "require-dev": {
-        "decodelabs/glitch": "^0.18.5",
         "decodelabs/phpstan-decodelabs": "^0.6.5"
     },
     "autoload": {
         "psr-4": {
-            "DecodeLabs\\Cosmos\\": "src/Cosmos/"
+            "DecodeLabs\\Cosmos\\": "src/"
         },
         "files": [
-            "src/global.php"
+            "src/Context.php"
         ]
     },
     "extra": {

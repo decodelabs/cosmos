@@ -23,8 +23,9 @@ class Locale implements Dumpable
      *
      * @param array<string, string> $subtags
      */
-    public static function compose(array $subtags): static
-    {
+    public static function compose(
+        array $subtags
+    ): static {
         /** @phpstan-ignore-next-line */
         if (false === ($locale = SysLocale::composeLocale($subtags))) {
             throw Exceptional::InvalidArguemnt(
@@ -40,8 +41,9 @@ class Locale implements Dumpable
     /**
      * Init with string representation
      */
-    final public function __construct(string $locale)
-    {
+    final public function __construct(
+        string $locale
+    ) {
         $this->canonical = SysLocale::canonicalize($locale);
     }
 
@@ -49,8 +51,9 @@ class Locale implements Dumpable
     /**
      * Get current display name
      */
-    public function getName(?string $inLocale = null): string
-    {
+    public function getName(
+        ?string $inLocale = null
+    ): string {
         return SysLocale::getDisplayName($this->canonical, $inLocale);
     }
 
@@ -66,8 +69,9 @@ class Locale implements Dumpable
     /**
      * Get current language display name
      */
-    public function getLanguageName(?string $inLocale = null): string
-    {
+    public function getLanguageName(
+        ?string $inLocale = null
+    ): string {
         return SysLocale::getDisplayLanguage($this->canonical, $inLocale);
     }
 
@@ -89,8 +93,9 @@ class Locale implements Dumpable
     /**
      * Get current region display name
      */
-    public function getRegionName(?string $inLocale = null): ?string
-    {
+    public function getRegionName(
+        ?string $inLocale = null
+    ): ?string {
         $output = SysLocale::getDisplayRegion($this->canonical, $inLocale);
 
         if (!strlen($output)) {
@@ -118,8 +123,9 @@ class Locale implements Dumpable
     /**
      * Get current script display name
      */
-    public function getScriptName(?string $inLocale = null): ?string
-    {
+    public function getScriptName(
+        ?string $inLocale = null
+    ): ?string {
         $output = SysLocale::getDisplayScript($this->canonical, $inLocale);
 
         if (!strlen($output)) {
@@ -149,8 +155,9 @@ class Locale implements Dumpable
     /**
      * Get current script variant name
      */
-    public function getVariantName(?string $inLocale = null): ?string
-    {
+    public function getVariantName(
+        ?string $inLocale = null
+    ): ?string {
         $output = SysLocale::getDisplayVariant($this->canonical, $inLocale);
 
         if (!strlen((string)$output)) {

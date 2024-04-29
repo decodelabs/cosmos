@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace DecodeLabs\Cosmos;
 
 use DateTimeZone as Timezone;
+use DecodeLabs\Cosmos;
 use DecodeLabs\Veneer;
 use DecodeLabs\Veneer\Plugin;
 use IntlTimeZone;
@@ -141,8 +142,9 @@ class Context
     /**
      * Parse and create DateTimeZone
      */
-    protected function createTimezone(string $timezone): Timezone
-    {
+    protected function createTimezone(
+        string $timezone
+    ): Timezone {
         if (preg_match('/^[a-z]{3}$/', $timezone)) {
             $timezone = strtoupper($timezone);
         } elseif (preg_match('|^([a-z\-]+)/([a-z\-]+)$|', $timezone, $matches)) {
@@ -156,3 +158,7 @@ class Context
         return new Timezone($timezone);
     }
 }
+
+
+// Register the Veneer facade
+Veneer::register(Context::class, Cosmos::class);
