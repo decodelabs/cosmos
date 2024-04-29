@@ -1,5 +1,7 @@
+## v0.1.4 (2024-04-29)
 * Made PHP8.1 minimum version
 * Refactored package file structure
+* Fixed Veneer stubs in gitattributes
 * Updated dependency list
 
 ## v0.1.3 (2023-09-26)
