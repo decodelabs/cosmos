@@ -44,7 +44,13 @@ class Locale implements Dumpable
     final public function __construct(
         string $locale
     ) {
-        $this->canonical = SysLocale::canonicalize($locale);
+        if (null === ($canonical = SysLocale::canonicalize($locale))) {
+            throw Exceptional::InvalidArguemnt(
+                'Invalid locale string: ' . $locale
+            );
+        }
+
+        $this->canonical = $canonical;
     }
 
 
@@ -63,7 +69,13 @@ class Locale implements Dumpable
      */
     public function getLanguage(): string
     {
-        return SysLocale::getPrimaryLanguage($this->canonical);
+        if (null === ($output = SysLocale::getPrimaryLanguage($this->canonical))) {
+            throw Exceptional::Runtime(
+                'Unable to extract language from locale: ' . $this->canonical
+            );
+        }
+
+        return $output;
     }
 
     /**
@@ -72,7 +84,15 @@ class Locale implements Dumpable
     public function getLanguageName(
         ?string $inLocale = null
     ): string {
-        return SysLocale::getDisplayLanguage($this->canonical, $inLocale);
+        // Docs mismatch
+        // @phpstan-ignore-next-line
+        if (false === ($output = SysLocale::getDisplayLanguage($this->canonical, $inLocale))) {
+            throw Exceptional::Runtime(
+                'Unable to extract language from locale: ' . $this->canonical
+            );
+        }
+
+        return $output;
     }
 
 
@@ -83,7 +103,7 @@ class Locale implements Dumpable
     {
         $output = SysLocale::getRegion($this->canonical);
 
-        if (!strlen($output)) {
+        if (!strlen((string)$output)) {
             $output = null;
         }
 
@@ -96,9 +116,9 @@ class Locale implements Dumpable
     public function getRegionName(
         ?string $inLocale = null
     ): ?string {
-        $output = SysLocale::getDisplayRegion($this->canonical, $inLocale);
-
-        if (!strlen($output)) {
+        // Docs mismatch
+        // @phpstan-ignore-next-line
+        if (false === ($output = SysLocale::getDisplayRegion($this->canonical, $inLocale))) {
             $output = null;
         }
 
@@ -113,7 +133,7 @@ class Locale implements Dumpable
     {
         $output = SysLocale::getScript($this->canonical);
 
-        if (!strlen($output)) {
+        if (!strlen((string)$output)) {
             $output = null;
         }
 
