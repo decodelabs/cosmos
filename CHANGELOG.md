@@ -1,3 +1,6 @@
+* Updated Veneer dependency
+* Fixed PHPStan issues
+
 ## v0.1.4 (2024-04-29)
 * Made PHP8.1 minimum version
 * Refactored package file structure
