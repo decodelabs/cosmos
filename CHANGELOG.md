@@ -1,3 +1,4 @@
+## v0.1.5 (2024-07-17)
 * Updated Veneer dependency
 * Fixed PHPStan issues
 
