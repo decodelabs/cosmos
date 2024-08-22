@@ -12,20 +12,18 @@ namespace DecodeLabs\Cosmos\Extension;
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
 use Carbon\CarbonInterval;
-
 use DateInterval;
 use DateTime;
 use DateTimeZone;
-
 use DecodeLabs\Cosmos;
 use DecodeLabs\Cosmos\Locale;
 use DecodeLabs\Exceptional;
-
 use IntlDateFormatter;
 use Stringable;
 
 /**
  * @template TReturn
+ * @phpstan-require-implements Time
  */
 trait TimeTrait
 {
