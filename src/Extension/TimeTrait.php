@@ -14,6 +14,8 @@ use Carbon\CarbonInterface;
 use Carbon\CarbonInterval;
 use DateInterval;
 use DateTime;
+use DateTimeImmutable;
+use DateTimeInterface;
 use DateTimeZone;
 use DecodeLabs\Cosmos;
 use DecodeLabs\Cosmos\Locale;
@@ -31,7 +33,7 @@ trait TimeTrait
      * Format raw ICU date
      */
     protected function formatRawIcuDate(
-        DateTime|DateInterval|string|Stringable|int|null &$date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null &$date,
         string $pattern,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
@@ -57,7 +59,7 @@ trait TimeTrait
      * Format raw locale date
      */
     protected function formatRawLocaleDate(
-        DateTime|DateInterval|string|Stringable|int|null &$date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null &$date,
         string|int|bool|null $dateSize = true,
         string|int|bool|null $timeSize = true,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
@@ -75,7 +77,7 @@ trait TimeTrait
         }
 
         if ($hasDate && $hasTime) {
-            $wrapFormat = DateTime::W3C;
+            $wrapFormat = DateTimeInterface::W3C;
         } elseif ($hasTime) {
             $wrapFormat = 'H:i:s';
         } else {
@@ -100,7 +102,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function fullDateTime(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed {
@@ -111,7 +113,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function fullDate(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed {
@@ -122,7 +124,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function fullTime(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed {
@@ -134,7 +136,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function longDateTime(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed {
@@ -145,7 +147,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function longDate(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed {
@@ -156,7 +158,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function longTime(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed {
@@ -168,7 +170,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function mediumDateTime(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed {
@@ -179,7 +181,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function mediumDate(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed {
@@ -190,7 +192,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function mediumTime(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed {
@@ -202,7 +204,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function shortDateTime(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed {
@@ -213,7 +215,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function shortDate(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed {
@@ -224,7 +226,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function shortTime(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed {
@@ -238,7 +240,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function dateTime(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed {
@@ -249,7 +251,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function date(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed {
@@ -260,7 +262,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function time(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed {
@@ -277,7 +279,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function since(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         ?bool $positive = null,
         ?int $parts = 1,
         string|Locale|null $locale = null
@@ -291,7 +293,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function sinceAbs(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         ?bool $positive = null,
         ?int $parts = 1,
         string|Locale|null $locale = null
@@ -305,7 +307,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function sinceAbbr(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         ?bool $positive = null,
         ?int $parts = 1,
         string|Locale|null $locale = null
@@ -319,7 +321,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function until(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         ?bool $positive = null,
         ?int $parts = 1,
         string|Locale|null $locale = null
@@ -333,7 +335,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function untilAbs(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         ?bool $positive = null,
         ?int $parts = 1,
         string|Locale|null $locale = null
@@ -347,7 +349,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function untilAbbr(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         ?bool $positive = null,
         ?int $parts = 1,
         string|Locale|null $locale = null
@@ -363,7 +365,7 @@ trait TimeTrait
      * @return TReturn|null
      */
     protected function formatNowInterval(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         bool $invert,
         ?int $parts,
         bool $short = false,
@@ -379,7 +381,7 @@ trait TimeTrait
      * Format interval
      */
     protected function formatRawNowInterval(
-        DateTime|DateInterval|string|Stringable|int|null &$date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null &$date,
         ?DateInterval &$interval,
         bool $invert,
         ?int $parts,
@@ -440,8 +442,8 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function between(
-        DateTime|DateInterval|string|Stringable|int|null $date1,
-        DateTime|DateInterval|string|Stringable|int|null $date2,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date1,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date2,
         ?int $parts = 1,
         string|Locale|null $locale = null
     ): mixed {
@@ -454,8 +456,8 @@ trait TimeTrait
      * @return TReturn|null
      */
     public function betweenAbbr(
-        DateTime|DateInterval|string|Stringable|int|null $date1,
-        DateTime|DateInterval|string|Stringable|int|null $date2,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date1,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date2,
         ?int $parts = 1,
         string|Locale|null $locale = null
     ): mixed {
@@ -468,8 +470,8 @@ trait TimeTrait
      * @return TReturn|null
      */
     protected function formatBetweenInterval(
-        DateTime|DateInterval|string|Stringable|int|null $date1,
-        DateTime|DateInterval|string|Stringable|int|null $date2,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date1,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date2,
         ?int $parts = 1,
         bool $short = false,
         string|Locale|null $locale = null
@@ -481,8 +483,8 @@ trait TimeTrait
      * Format interval until date
      */
     protected function formatRawBetweenInterval(
-        DateTime|DateInterval|string|Stringable|int|null &$date1,
-        DateTime|DateInterval|string|Stringable|int|null &$date2,
+        DateTimeInterface|DateInterval|string|Stringable|int|null &$date1,
+        DateTimeInterface|DateInterval|string|Stringable|int|null &$date2,
         ?DateInterval &$interval,
         ?int $parts = 1,
         bool $short = false,
@@ -523,7 +525,7 @@ trait TimeTrait
      * Prepare date for formatting
      */
     protected function prepare(
-        DateTime|DateInterval|string|Stringable|int|null $date,
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         bool $includeTime = true
     ): ?DateTime {
@@ -552,10 +554,12 @@ trait TimeTrait
      * Normalize a date input
      */
     protected function normalizeDate(
-        DateTime|DateInterval|string|Stringable|int|null $date
+        DateTimeInterface|DateInterval|string|Stringable|int|null $date
     ): ?DateTime {
         if ($date === null) {
             return null;
+        } elseif ($date instanceof DateTimeImmutable) {
+            return DateTime::createFromInterface($date);
         } elseif ($date instanceof DateTime) {
             return $date;
         }

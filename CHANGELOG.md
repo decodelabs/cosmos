@@ -1,3 +1,4 @@
+* Switched DateTime to DateTimeInterface in Time extension
 * Added @phpstan-require-implements constraints
 * Added extension analysis tests
 * Updated Veneer dependency and Stub
