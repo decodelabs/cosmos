@@ -14,7 +14,7 @@
 
         "decodelabs/exceptional": "^0.4.3",
         "decodelabs/glitch-support": "^0.4.3",
-        "decodelabs/veneer": "^0.11.1"
+        "decodelabs/veneer": "^0.11.6"
     },
     "require-dev": {
         "decodelabs/phpstan-decodelabs": "^0.6.5"
@@ -29,7 +29,12 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-develop": "0.1.x-dev"
+            "dev-develop": "0.2.x-dev"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true
         }
     }
 }

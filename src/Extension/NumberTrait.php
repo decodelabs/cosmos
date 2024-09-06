@@ -16,6 +16,7 @@ use NumberFormatter;
 
 /**
  * @template TReturn
+ * @phpstan-require-implements Number
  */
 trait NumberTrait
 {

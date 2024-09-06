@@ -15,8 +15,8 @@ class Cosmos implements Proxy
 {
     use ProxyTrait;
 
-    const VENEER = 'DecodeLabs\\Cosmos';
-    const VENEER_TARGET = Inst::class;
+    const Veneer = 'DecodeLabs\\Cosmos';
+    const VeneerTarget = Inst::class;
 
     public static Inst $instance;
     public static LocalePlugin $locale;
