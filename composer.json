@@ -3,7 +3,7 @@
     "description": "Internationalisation made simple",
     "type": "library",
     "keywords": [ ],
-    "license": "proprietary",
+    "license": "MIT",
     "authors": [ {
             "name": "Tom Wright",
             "email": "tom@inflatablecookie.com"
