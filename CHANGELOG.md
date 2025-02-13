@@ -1,3 +1,4 @@
+## v0.2.1 (2025-02-13)
 * Added property hooks to locale
 * Upgraded PHPStan to v2
 * Added PHP8.4 to CI workflow
