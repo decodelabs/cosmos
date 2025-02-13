@@ -1,3 +1,5 @@
+* Tidied boolean logic
+
 ## v0.2.1 (2025-02-13)
 * Added property hooks to locale
 * Upgraded PHPStan to v2

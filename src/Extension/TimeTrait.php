@@ -76,11 +76,17 @@ trait TimeTrait
         $hasDate = $dateSize !== IntlDateFormatter::NONE;
         $hasTime = ($timeSize !== IntlDateFormatter::NONE) && ($timezone !== false);
 
-        if (!$hasDate && !$hasTime) {
+        if (
+            !$hasDate &&
+            !$hasTime
+        ) {
             return null;
         }
 
-        if ($hasDate && $hasTime) {
+        if (
+            $hasDate &&
+            $hasTime
+        ) {
             $wrapFormat = DateTimeInterface::W3C;
         } elseif ($hasTime) {
             $wrapFormat = 'H:i:s';

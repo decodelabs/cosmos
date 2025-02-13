@@ -256,7 +256,10 @@ trait NumberTrait
             return null;
         }
 
-        if ($counter == 0 && !$allowZero) {
+        if (
+            $counter == 0 &&
+            !$allowZero
+        ) {
             return null;
         }
 
