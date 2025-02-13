@@ -20,7 +20,7 @@ use Stringable;
 /**
  * @implements Time<string>
  */
-class AnalyzeTimeExtension implements TimePlugin
+class AnalyzeTimeExtension implements Time
 {
     /**
      * @use TimeTrait<string>

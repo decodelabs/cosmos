@@ -1,4 +1,7 @@
+* Added property hooks to locale
+* Upgraded PHPStan to v2
 * Added PHP8.4 to CI workflow
+* Made PHP8.4 minimum version
 
 ## v0.2.0 (2024-09-06)
 * Switched DateTime to DateTimeInterface in Time extension

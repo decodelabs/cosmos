@@ -13,8 +13,14 @@ use DecodeLabs\Cosmos\Extension\Number;
 use DecodeLabs\Cosmos\Extension\NumberTrait;
 use DecodeLabs\Cosmos\Locale;
 
+/**
+ * @implements Number<string>
+ */
 class AnalyzeNumberExtension implements Number
 {
+    /**
+     * @use NumberTrait<string>
+     */
     use NumberTrait;
 
     public function format(

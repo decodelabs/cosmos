@@ -19,7 +19,7 @@ use Locale as SysLocale;
 class Context
 {
     #[Plugin]
-    public Locale $locale;
+    protected(set) Locale $locale;
 
     #[Plugin]
     public Timezone $timezone;
@@ -151,7 +151,10 @@ class Context
             $timezone = ucfirst($matches[1]) . '/' . ucfirst($matches[2]);
         }
 
-        if (false !== ($canon = IntlTimeZone::getCanonicalID($timezone))) {
+        /** @var string|false */
+        $canon = IntlTimeZone::getCanonicalID($timezone);
+
+        if ($canon !== false) {
             $timezone = $canon;
         }
 
@@ -161,4 +164,7 @@ class Context
 
 
 // Register the Veneer facade
-Veneer::register(Context::class, Cosmos::class);
+Veneer\Manager::getGlobalManager()->register(
+    Context::class,
+    Cosmos::class
+);
