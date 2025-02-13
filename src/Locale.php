@@ -15,7 +15,53 @@ use Locale as SysLocale;
 
 class Locale implements Dumpable
 {
-    protected string $canonical;
+    public protected(set) string $canonical;
+
+    public string $name {
+        get => $this->getName();
+    }
+
+    public string $language {
+        get => $this->getLanguage();
+    }
+
+    public string $languageName {
+        get => $this->getLanguageName();
+    }
+
+    public ?string $region {
+        get => $this->getRegion();
+    }
+
+    public ?string $regionName {
+        get => $this->getRegionName();
+    }
+
+    public ?string $script {
+        get => $this->getScript();
+    }
+
+    public ?string $scriptName {
+        get => $this->getScriptName();
+    }
+
+    /**
+     * @var list<string>
+     */
+    public array $variants {
+        get => $this->getVariants();
+    }
+
+    public ?string $variantName {
+        get => $this->getVariantName();
+    }
+
+    /**
+     * @var array<string,string>
+     */
+    public array $keywords {
+        get => $this->getKeywords();
+    }
 
 
     /**
@@ -29,9 +75,8 @@ class Locale implements Dumpable
         /** @phpstan-ignore-next-line */
         if (false === ($locale = SysLocale::composeLocale($subtags))) {
             throw Exceptional::InvalidArguemnt(
-                'Unable to composer locale with provided subtags',
-                null,
-                $subtags
+                message: 'Unable to composer locale with provided subtags',
+                data: $subtags
             );
         }
 
@@ -46,7 +91,7 @@ class Locale implements Dumpable
     ) {
         if (null === ($canonical = SysLocale::canonicalize($locale))) {
             throw Exceptional::InvalidArguemnt(
-                'Invalid locale string: ' . $locale
+                message: 'Invalid locale string: ' . $locale
             );
         }
 
@@ -71,7 +116,7 @@ class Locale implements Dumpable
     {
         if (null === ($output = SysLocale::getPrimaryLanguage($this->canonical))) {
             throw Exceptional::Runtime(
-                'Unable to extract language from locale: ' . $this->canonical
+                message: 'Unable to extract language from locale: ' . $this->canonical
             );
         }
 
@@ -88,7 +133,7 @@ class Locale implements Dumpable
         // @phpstan-ignore-next-line
         if (false === ($output = SysLocale::getDisplayLanguage($this->canonical, $inLocale))) {
             throw Exceptional::Runtime(
-                'Unable to extract language from locale: ' . $this->canonical
+                message: 'Unable to extract language from locale: ' . $this->canonical
             );
         }
 
@@ -159,7 +204,7 @@ class Locale implements Dumpable
     /**
      * Get current variants
      *
-     * @return array<string>
+     * @return list<string>
      */
     public function getVariants(): array
     {
@@ -169,6 +214,7 @@ class Locale implements Dumpable
             $output = [];
         }
 
+        /** @var list<string> */
         return $output;
     }
 
@@ -191,15 +237,18 @@ class Locale implements Dumpable
     /**
      * Get keywords
      *
-     * @return array<string>
+     * @return array<string,string>
      */
     public function getKeywords(): array
     {
-        if (!($output = SysLocale::getKeywords($this->canonical))) {
+        $output = SysLocale::getKeywords($this->canonical);
+
+        if (!$output) {
             return [];
         }
 
-        return $output;
+        /** @var array<string,string> */
+        return (array)$output;
     }
 
 
@@ -264,7 +313,6 @@ class Locale implements Dumpable
 
         $output = SysLocale::lookup($options, $this->canonical, false, $default);
 
-        /** @phpstan-ignore-next-line */
         if ($output === null) {
             $output = $default;
         }

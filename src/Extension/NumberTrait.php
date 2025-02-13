@@ -211,6 +211,9 @@ trait NumberTrait
     }
 
 
+    private const FileSizeUnits = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
+
+
     /**
      * Format raw filesize
      */
@@ -218,13 +221,11 @@ trait NumberTrait
         int $bytes,
         string|Locale|null $locale
     ): string {
-        static $units = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB'];
-
         for ($i = 0; $bytes > 1024 && $i < 6; $i++) {
             $bytes /= 1024;
         }
 
-        return $this->formatRawDecimal($bytes, 2, $locale) . ' ' . $units[$i];
+        return $this->formatRawDecimal($bytes, 2, $locale) . ' ' . self::FileSizeUnits[$i];
     }
 
     /**
@@ -234,13 +235,11 @@ trait NumberTrait
         int $bytes,
         string|Locale|null $locale
     ): string {
-        static $units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
-
         for ($i = 0; $bytes > 1000 && $i < 6; $i++) {
             $bytes /= 1000;
         }
 
-        return $this->formatRawDecimal($bytes, 2, $locale) . ' ' . $units[$i];
+        return $this->formatRawDecimal($bytes, 2, $locale) . ' ' . self::FileSizeUnits[$i];
     }
 
 
@@ -303,7 +302,10 @@ trait NumberTrait
             !is_int($value) &&
             !is_float($value)
         ) {
-            throw Exceptional::InvalidArgument('Value is not a number', null, $value);
+            throw Exceptional::InvalidArgument(
+                message: 'Value is not a number',
+                data: $value
+            );
         }
 
         return $value;
@@ -317,11 +319,17 @@ trait NumberTrait
         string|bool $output
     ): string {
         if (intl_is_failure($formatter->getErrorCode())) {
-            throw Exceptional::Runtime('INTL failure: ' . $formatter->getErrorMessage(), null, $output);
+            throw Exceptional::Runtime(
+                message: 'INTL failure: ' . $formatter->getErrorMessage(),
+                data: $output
+            );
         }
 
         if ($output === false) {
-            throw Exceptional::Runtime('INTL failure: unknown error', null, $output);
+            throw Exceptional::Runtime(
+                message: 'INTL failure: unknown error',
+                data: $output
+            );
         }
 
         return (string)$output;

@@ -31,6 +31,8 @@ trait TimeTrait
 {
     /**
      * Format raw ICU date
+     *
+     * @param-out DateTimeInterface|null $date
      */
     protected function formatRawIcuDate(
         DateTimeInterface|DateInterval|string|Stringable|int|null &$date,
@@ -57,6 +59,8 @@ trait TimeTrait
 
     /**
      * Format raw locale date
+     *
+     * @param-out DateTimeInterface|null $date
      */
     protected function formatRawLocaleDate(
         DateTimeInterface|DateInterval|string|Stringable|int|null &$date,
@@ -379,6 +383,8 @@ trait TimeTrait
 
     /**
      * Format interval
+     *
+     * @param-out DateTimeInterface|null $date
      */
     protected function formatRawNowInterval(
         DateTimeInterface|DateInterval|string|Stringable|int|null &$date,
@@ -402,11 +408,15 @@ trait TimeTrait
             }
 
             if (null === ($now = $this->normalizeDate('now'))) {
-                throw Exceptional::UnexpectedValue('Unable to create now date');
+                throw Exceptional::UnexpectedValue(
+                    message: 'Unable to create now date'
+                );
             }
 
             if (null === ($interval = CarbonInterval::make($date->diff($now)))) {
-                throw Exceptional::UnexpectedValue('Unable to create interval');
+                throw Exceptional::UnexpectedValue(
+                    message: 'Unable to create interval'
+                );
             }
         }
 
@@ -481,6 +491,9 @@ trait TimeTrait
 
     /**
      * Format interval until date
+     *
+     * @param-out DateTimeInterface|null $date1
+     * @param-out DateTimeInterface|null $date2
      */
     protected function formatRawBetweenInterval(
         DateTimeInterface|DateInterval|string|Stringable|int|null &$date1,
@@ -501,7 +514,9 @@ trait TimeTrait
         }
 
         if (null === ($interval = CarbonInterval::make($date1->diff($date2)))) {
-            throw Exceptional::UnexpectedValue('Unable to create interval');
+            throw Exceptional::UnexpectedValue(
+                message: 'Unable to create interval'
+            );
         }
 
         $locale = Cosmos::normalizeLocaleString($locale);
@@ -568,7 +583,9 @@ trait TimeTrait
             $int = $date;
 
             if (null === ($now = $this->normalizeDate('now'))) {
-                throw Exceptional::UnexpectedValue('Unable to create now date');
+                throw Exceptional::UnexpectedValue(
+                    message: 'Unable to create now date'
+                );
             }
 
             return $now->add($int);
@@ -652,7 +669,7 @@ trait TimeTrait
 
             default:
                 throw Exceptional::InvalidArgument(
-                    'Invalid locale formatter size: ' . $size
+                    message: 'Invalid locale formatter size: ' . $size
                 );
         }
     }
@@ -664,7 +681,7 @@ trait TimeTrait
     {
         if (!class_exists(Carbon::class)) {
             throw Exceptional::ComponentUnavailable(
-                'nesbot/carbon is required for formatting intervals'
+                message: 'nesbot/carbon is required for formatting intervals'
             );
         }
     }
