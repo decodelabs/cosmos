@@ -11,8 +11,6 @@
 
 Cosmos provides a simple interface to handle typical i18n tasks in your PHP app.
 
-_Get news and updates on the [DecodeLabs blog](https://blog.decodelabs.com)._
-
 ---
 
 ## Installation
