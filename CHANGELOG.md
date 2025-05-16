@@ -1,35 +1,80 @@
-* Tidied boolean logic
+# Changelog
 
-## v0.2.1 (2025-02-13)
-* Added property hooks to locale
-* Upgraded PHPStan to v2
-* Added PHP8.4 to CI workflow
-* Made PHP8.4 minimum version
+All notable changes to this project will be documented in this file.<br>
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## v0.2.0 (2024-09-06)
-* Switched DateTime to DateTimeInterface in Time extension
-* Added @phpstan-require-implements constraints
-* Added extension analysis tests
-* Updated Veneer dependency and Stub
+### Unreleased
+- Tidied boolean logic
 
-## v0.1.5 (2024-07-17)
-* Updated Veneer dependency
-* Fixed PHPStan issues
+---
 
-## v0.1.4 (2024-04-29)
-* Made PHP8.1 minimum version
-* Refactored package file structure
-* Fixed Veneer stubs in gitattributes
-* Updated dependency list
+### [v0.2.1](https://github.com/decodelabs/cosmos/commits/v0.2.1) - 13th February 2025
 
-## v0.1.3 (2023-09-26)
-* Converted phpstan doc comments to generic
+- Added property hooks to locale
+- Upgraded PHPStan to v2
+- Added PHP8.4 to CI workflow
+- Made PHP8.4 minimum version
 
-## v0.1.2 (2022-11-28)
-* Fixed Cosmos Veneer ref in NumberTrait
+[Full list of changes](https://github.com/decodelabs/cosmos/compare/v0.2.0...v0.2.1)
 
-## v0.1.1 (2022-11-28)
-* Imported time and number plugins from Dictum
+---
 
-## v0.1.0 (2022-11-28)
-* Built initial locale and timezone management
+### [v0.2.0](https://github.com/decodelabs/cosmos/commits/v0.2.0) - 6th September 2024
+
+- Switched DateTime to DateTimeInterface in Time extension
+- Added @phpstan-require-implements constraints
+- Added extension analysis tests
+- Updated Veneer dependency and Stub
+
+[Full list of changes](https://github.com/decodelabs/cosmos/compare/v0.1.5...v0.2.0)
+
+---
+
+### [v0.1.5](https://github.com/decodelabs/cosmos/commits/v0.1.5) - 17th July 2024
+
+- Updated Veneer dependency
+- Fixed PHPStan issues
+
+[Full list of changes](https://github.com/decodelabs/cosmos/compare/v0.1.4...v0.1.5)
+
+---
+
+### [v0.1.4](https://github.com/decodelabs/cosmos/commits/v0.1.4) - 29th April 2024
+
+- Made PHP8.1 minimum version
+- Refactored package file structure
+- Fixed Veneer stubs in gitattributes
+- Updated dependency list
+
+[Full list of changes](https://github.com/decodelabs/cosmos/compare/v0.1.3...v0.1.4)
+
+---
+
+### [v0.1.3](https://github.com/decodelabs/cosmos/commits/v0.1.3) - 26th September 2023
+
+- Converted phpstan doc comments to generic
+
+[Full list of changes](https://github.com/decodelabs/cosmos/compare/v0.1.2...v0.1.3)
+
+---
+
+### [v0.1.2](https://github.com/decodelabs/cosmos/commits/v0.1.2) - 28th November 2022
+
+- Fixed Cosmos Veneer ref in NumberTrait
+
+[Full list of changes](https://github.com/decodelabs/cosmos/compare/v0.1.1...v0.1.2)
+
+---
+
+### [v0.1.1](https://github.com/decodelabs/cosmos/commits/v0.1.1) - 28th November 2022
+
+- Imported time and number plugins from Dictum
+
+[Full list of changes](https://github.com/decodelabs/cosmos/compare/v0.1.0...v0.1.1)
+
+---
+
+### [v0.1.0](https://github.com/decodelabs/cosmos/commits/v0.1.0) - 28th November 2022
+
+- Built initial locale and timezone management
