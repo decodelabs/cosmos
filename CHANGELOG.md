@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Unreleased
 - Tidied boolean logic
+- Switched to Nuance for dump handling
+- Upgraded Exceptional to v0.6
+- Removed Carbon v2 option
 
 ---
 

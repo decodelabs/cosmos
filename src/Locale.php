@@ -10,7 +10,8 @@ declare(strict_types=1);
 namespace DecodeLabs\Cosmos;
 
 use DecodeLabs\Exceptional;
-use DecodeLabs\Glitch\Dumpable;
+use DecodeLabs\Nuance\Dumpable;
+use DecodeLabs\Nuance\Entity\NativeObject as NuanceEntity;
 use Locale as SysLocale;
 
 class Locale implements Dumpable
@@ -325,14 +326,12 @@ class Locale implements Dumpable
     }
 
 
-    /**
-     * Dump values
-     */
-    public function glitchDump(): iterable
+    public function toNuanceEntity(): NuanceEntity
     {
-        yield 'text' => $this->canonical;
+        $entity = new NuanceEntity($this);
+        $entity->itemName = $this->canonical;
 
-        yield 'metaList' => [
+        $entity->meta = [
             'language' => $this->getLanguageName() . ' : ' . $this->getLanguage(),
             'region' => ($region = $this->getRegionName()) !== null ? $region . ' : ' . $this->getRegion() : null,
             'script' => ($script = $this->getScriptName()) !== null ? $script . ' : ' . $this->getScript() : null,
@@ -340,5 +339,7 @@ class Locale implements Dumpable
             'variantName' => $this->getVariantName(),
             'keywords' => $this->getKeywords()
         ];
+
+        return $entity;
     }
 }
