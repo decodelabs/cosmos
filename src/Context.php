@@ -19,7 +19,7 @@ use Locale as SysLocale;
 class Context
 {
     #[Plugin]
-    protected(set) Locale $locale;
+    public protected(set) Locale $locale;
 
     #[Plugin]
     public Timezone $timezone;
@@ -151,7 +151,7 @@ class Context
             $timezone = ucfirst($matches[1]) . '/' . ucfirst($matches[2]);
         }
 
-        /** @var string|false */
+        /** @var string|false $canon */
         $canon = IntlTimeZone::getCanonicalID($timezone);
 
         if ($canon !== false) {
