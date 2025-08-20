@@ -27,7 +27,7 @@ class AnalyzeTimeExtension implements Time
      */
     use TimeTrait;
 
-    public function format(
+    public static function format(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         string $format,
         DateTimeZone|string|Stringable|bool|null $timezone = true
@@ -35,14 +35,14 @@ class AnalyzeTimeExtension implements Time
         return null;
     }
 
-    public function formatDate(
+    public static function formatDate(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         string $format
     ): ?string {
         return null;
     }
 
-    public function pattern(
+    public static function pattern(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         string $pattern,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
@@ -51,7 +51,7 @@ class AnalyzeTimeExtension implements Time
         return null;
     }
 
-    public function locale(
+    public static function locale(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         string|int|bool|null $dateSize = true,
         string|int|bool|null $timeSize = true,

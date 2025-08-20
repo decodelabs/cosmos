@@ -12,9 +12,9 @@
         "php": "^8.4",
         "ext-intl": "*",
 
-        "decodelabs/exceptional": "^0.6.1",
-        "decodelabs/nuance": "^0.1.2",
-        "decodelabs/veneer": "^0.12.8",
+        "decodelabs/exceptional": "^0.6.3",
+        "decodelabs/nuance": "^0.1.9",
+
         "nesbot/carbon": "^3"
     },
     "require-dev": {
@@ -23,10 +23,7 @@
     "autoload": {
         "psr-4": {
             "DecodeLabs\\Cosmos\\": "src/"
-        },
-        "files": [
-            "src/Context.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {

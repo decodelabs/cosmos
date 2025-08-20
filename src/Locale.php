@@ -66,9 +66,7 @@ class Locale implements Dumpable
 
 
     /**
-     * Composer locale
-     *
-     * @param array<string, string> $subtags
+     * @param array<string,string> $subtags
      */
     public static function compose(
         array $subtags
@@ -84,9 +82,43 @@ class Locale implements Dumpable
         return new static($locale);
     }
 
-    /**
-     * Init with string representation
-     */
+    public static function from(
+        string|Locale|null $locale = null
+    ): self {
+        if ($locale === null) {
+            $locale = SysLocale::getDefault();
+        }
+
+        if (is_string($locale)) {
+            $locale = new static($locale);
+        }
+
+        return $locale;
+    }
+
+    public static function stringFrom(
+        string|Locale|null $locale = null
+    ): string {
+        return (string)self::from($locale);
+    }
+
+
+    public static function getDefault(): static
+    {
+        return new static(SysLocale::getDefault());
+    }
+
+    public static function setDefault(
+        string|Locale $locale
+    ): void {
+        if (!$locale instanceof Locale) {
+            $locale = new static($locale);
+        }
+
+        SysLocale::setDefault((string)$locale);
+    }
+
+
     final public function __construct(
         string $locale
     ) {
@@ -100,19 +132,24 @@ class Locale implements Dumpable
     }
 
 
-    /**
-     * Get current display name
-     */
     public function getName(
-        ?string $inLocale = null
+        string|Locale|null $displayLocale = null
     ): string {
-        return SysLocale::getDisplayName($this->canonical, $inLocale);
+        if ($displayLocale instanceof Locale) {
+            $displayLocale = (string)$displayLocale;
+        }
+
+
+        if (false === ($output = SysLocale::getDisplayName($this->canonical, $displayLocale))) {
+            throw Exceptional::Runtime(
+                message: 'Unable to extract name from locale: ' . $this->canonical
+            );
+        }
+
+        return $output;
     }
 
 
-    /**
-     * Get current language
-     */
     public function getLanguage(): string
     {
         if (null === ($output = SysLocale::getPrimaryLanguage($this->canonical))) {
@@ -124,15 +161,14 @@ class Locale implements Dumpable
         return $output;
     }
 
-    /**
-     * Get current language display name
-     */
     public function getLanguageName(
-        ?string $inLocale = null
+        string|Locale|null $displayLocale = null
     ): string {
-        // Docs mismatch
-        // @phpstan-ignore-next-line
-        if (false === ($output = SysLocale::getDisplayLanguage($this->canonical, $inLocale))) {
+        if ($displayLocale instanceof Locale) {
+            $displayLocale = (string)$displayLocale;
+        }
+
+        if (false === ($output = SysLocale::getDisplayLanguage($this->canonical, $displayLocale))) {
             throw Exceptional::Runtime(
                 message: 'Unable to extract language from locale: ' . $this->canonical
             );
@@ -142,9 +178,6 @@ class Locale implements Dumpable
     }
 
 
-    /**
-     * Get current region
-     */
     public function getRegion(): ?string
     {
         $output = SysLocale::getRegion($this->canonical);
@@ -156,15 +189,14 @@ class Locale implements Dumpable
         return $output;
     }
 
-    /**
-     * Get current region display name
-     */
     public function getRegionName(
-        ?string $inLocale = null
+        string|Locale|null $displayLocale = null
     ): ?string {
-        // Docs mismatch
-        // @phpstan-ignore-next-line
-        if (false === ($output = SysLocale::getDisplayRegion($this->canonical, $inLocale))) {
+        if ($displayLocale instanceof Locale) {
+            $displayLocale = (string)$displayLocale;
+        }
+
+        if (false === ($output = SysLocale::getDisplayRegion($this->canonical, $displayLocale))) {
             $output = null;
         }
 
@@ -172,9 +204,6 @@ class Locale implements Dumpable
     }
 
 
-    /**
-     * Get current script
-     */
     public function getScript(): ?string
     {
         $output = SysLocale::getScript($this->canonical);
@@ -186,15 +215,19 @@ class Locale implements Dumpable
         return $output;
     }
 
-    /**
-     * Get current script display name
-     */
     public function getScriptName(
-        ?string $inLocale = null
+        string|Locale|null $displayLocale = null
     ): ?string {
-        $output = SysLocale::getDisplayScript($this->canonical, $inLocale);
+        if ($displayLocale instanceof Locale) {
+            $displayLocale = (string)$displayLocale;
+        }
 
-        if (!strlen($output)) {
+        $output = SysLocale::getDisplayScript($this->canonical, $displayLocale);
+
+        if (
+            $output === false ||
+            !strlen($output)
+        ) {
             $output = null;
         }
 
@@ -203,8 +236,6 @@ class Locale implements Dumpable
 
 
     /**
-     * Get current variants
-     *
      * @return list<string>
      */
     public function getVariants(): array
@@ -219,15 +250,19 @@ class Locale implements Dumpable
         return $output;
     }
 
-    /**
-     * Get current script variant name
-     */
     public function getVariantName(
-        ?string $inLocale = null
+        string|Locale|null $displayLocale = null
     ): ?string {
-        $output = SysLocale::getDisplayVariant($this->canonical, $inLocale);
+        if ($displayLocale instanceof Locale) {
+            $displayLocale = (string)$displayLocale;
+        }
 
-        if (!strlen((string)$output)) {
+        $output = SysLocale::getDisplayVariant($this->canonical, $displayLocale);
+
+        if (
+            $output === false ||
+            !strlen($output)
+        ) {
             $output = null;
         }
 
@@ -236,8 +271,6 @@ class Locale implements Dumpable
 
 
     /**
-     * Get keywords
-     *
      * @return array<string,string>
      */
     public function getKeywords(): array
@@ -253,18 +286,12 @@ class Locale implements Dumpable
     }
 
 
-    /**
-     * Convert to string
-     */
     public function __toString(): string
     {
         return $this->canonical;
     }
 
 
-    /**
-     * Equals another locale exactly
-     */
     public function eq(
         string|Locale $locale
     ): bool {
@@ -275,9 +302,6 @@ class Locale implements Dumpable
         return (string)$locale === $this->canonical;
     }
 
-    /**
-     * Matches another locale
-     */
     public function matches(
         string|Locale $locale
     ): bool {
@@ -289,8 +313,6 @@ class Locale implements Dumpable
     }
 
     /**
-     * Lookup best match in list
-     *
      * @param array<string|Locale> $options
      */
     public function bestMatch(

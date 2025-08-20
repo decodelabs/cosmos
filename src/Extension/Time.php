@@ -21,32 +21,26 @@ use Stringable;
 interface Time
 {
     /**
-     * Custom format a date and wrap it
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function format(
+    public static function format(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         string $format,
         DateTimeZone|string|Stringable|bool|null $timezone = true
     ): mixed;
 
     /**
-     * Custom format a date and wrap it
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function formatDate(
+    public static function formatDate(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         string $format
     ): mixed;
 
     /**
-     * Custom locale format a date with ICU and wrap it
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function pattern(
+    public static function pattern(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         string $pattern,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
@@ -54,11 +48,9 @@ interface Time
     ): mixed;
 
     /**
-     * Format date according to locale
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function locale(
+    public static function locale(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         string|int|bool|null $dateSize = true,
         string|int|bool|null $timeSize = true,
@@ -67,33 +59,27 @@ interface Time
     ): mixed;
 
     /**
-     * Format full date time
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function fullDateTime(
+    public static function fullDateTime(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed;
 
     /**
-     * Format full date
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function fullDate(
+    public static function fullDate(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed;
 
     /**
-     * Format full time
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function fullTime(
+    public static function fullTime(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
@@ -101,33 +87,27 @@ interface Time
 
 
     /**
-     * Format long date time
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function longDateTime(
+    public static function longDateTime(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed;
 
     /**
-     * Format long date
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function longDate(
+    public static function longDate(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed;
 
     /**
-     * Format long time
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function longTime(
+    public static function longTime(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
@@ -135,33 +115,27 @@ interface Time
 
 
     /**
-     * Format medium date time
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function mediumDateTime(
+    public static function mediumDateTime(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed;
 
     /**
-     * Format medium date
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function mediumDate(
+    public static function mediumDate(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed;
 
     /**
-     * Format medium time
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function mediumTime(
+    public static function mediumTime(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
@@ -169,33 +143,27 @@ interface Time
 
 
     /**
-     * Format short date time
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function shortDateTime(
+    public static function shortDateTime(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed;
 
     /**
-     * Format short date
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function shortDate(
+    public static function shortDate(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed;
 
     /**
-     * Format short time
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function shortTime(
+    public static function shortTime(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
@@ -205,33 +173,27 @@ interface Time
 
 
     /**
-     * Format default date time
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function dateTime(
+    public static function dateTime(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed;
 
     /**
-     * Format default date
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function date(
+    public static function date(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
     ): mixed;
 
     /**
-     * Format default time
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function time(
+    public static function time(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         DateTimeZone|string|Stringable|bool|null $timezone = true,
         string|Locale|null $locale = null
@@ -241,11 +203,9 @@ interface Time
 
 
     /**
-     * Format interval since date
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function since(
+    public static function since(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         ?bool $positive = null,
         ?int $parts = 1,
@@ -253,11 +213,9 @@ interface Time
     ): mixed;
 
     /**
-     * Format interval since date
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function sinceAbs(
+    public static function sinceAbs(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         ?bool $positive = null,
         ?int $parts = 1,
@@ -265,11 +223,9 @@ interface Time
     ): mixed;
 
     /**
-     * Format interval since date
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function sinceAbbr(
+    public static function sinceAbbr(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         ?bool $positive = null,
         ?int $parts = 1,
@@ -277,11 +233,9 @@ interface Time
     ): mixed;
 
     /**
-     * Format interval until date
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function until(
+    public static function until(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         ?bool $positive = null,
         ?int $parts = 1,
@@ -289,11 +243,9 @@ interface Time
     ): mixed;
 
     /**
-     * Format interval until date
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function untilAbs(
+    public static function untilAbs(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         ?bool $positive = null,
         ?int $parts = 1,
@@ -301,11 +253,9 @@ interface Time
     ): mixed;
 
     /**
-     * Format interval until date
-     *
      * @return ($date is null ? null : TReturn)
      */
-    public function untilAbbr(
+    public static function untilAbbr(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date,
         ?bool $positive = null,
         ?int $parts = 1,
@@ -314,11 +264,9 @@ interface Time
 
 
     /**
-     * Format interval until date
-     *
      * @return ($date1 is null ? null : ($date2 is null ? null : TReturn))
      */
-    public function between(
+    public static function between(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date1,
         DateTimeInterface|DateInterval|string|Stringable|int|null $date2,
         ?int $parts = 1,
@@ -326,11 +274,9 @@ interface Time
     ): mixed;
 
     /**
-     * Format interval until date
-     *
      * @return ($date1 is null ? null : ($date2 is null ? null : TReturn))
      */
-    public function betweenAbbr(
+    public static function betweenAbbr(
         DateTimeInterface|DateInterval|string|Stringable|int|null $date1,
         DateTimeInterface|DateInterval|string|Stringable|int|null $date2,
         ?int $parts = 1,

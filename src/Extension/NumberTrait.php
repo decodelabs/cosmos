@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace DecodeLabs\Cosmos\Extension;
 
-use DecodeLabs\Cosmos;
 use DecodeLabs\Cosmos\Locale;
 use DecodeLabs\Exceptional;
 use NumberFormatter;
@@ -20,10 +19,7 @@ use NumberFormatter;
  */
 trait NumberTrait
 {
-    /**
-     * Expand string unit value
-     */
-    protected function expandStringUnitValue(
+    protected static function expandStringUnitValue(
         int|float|string|null &$value,
         ?string &$unit = null
     ): void {
@@ -36,16 +32,13 @@ trait NumberTrait
         }
     }
 
-    /**
-     * Format raw decimal
-     */
-    protected function formatRawDecimal(
+    protected static function formatRawDecimal(
         int|float $value,
         ?int $precision,
         string|Locale|null $locale
     ): string {
         $formatter = new NumberFormatter(
-            Cosmos::normalizeLocaleString($locale),
+            Locale::stringFrom($locale),
             NumberFormatter::DECIMAL
         );
 
@@ -53,36 +46,30 @@ trait NumberTrait
             $formatter->setAttribute(NumberFormatter::MAX_FRACTION_DIGITS, $precision);
         }
 
-        return $this->normalizeFormatterOutput(
+        return static::normalizeFormatterOutput(
             $formatter,
             $formatter->format($value)
         );
     }
 
-    /**
-     * Format raw decimal
-     */
-    protected function formatRawPatternDecimal(
+    protected static function formatRawPatternDecimal(
         int|float $value,
         string $pattern,
         string|Locale|null $locale
     ): string {
         $formatter = new NumberFormatter(
-            Cosmos::normalizeLocaleString($locale),
+            Locale::stringFrom($locale),
             NumberFormatter::PATTERN_DECIMAL,
             $pattern
         );
 
-        return $this->normalizeFormatterOutput(
+        return static::normalizeFormatterOutput(
             $formatter,
             $formatter->format($value)
         );
     }
 
-    /**
-     * Format raw currency
-     */
-    protected function formatRawCurrency(
+    protected static function formatRawCurrency(
         int|float $value,
         ?string $code,
         ?bool $rounded,
@@ -97,7 +84,7 @@ trait NumberTrait
         $code = strtoupper($code);
 
         $formatter = new NumberFormatter(
-            Cosmos::normalizeLocaleString($locale),
+            Locale::stringFrom($locale),
             NumberFormatter::CURRENCY
         );
 
@@ -113,93 +100,78 @@ trait NumberTrait
             $formatter->setAttribute(NumberFormatter::FRACTION_DIGITS, 0);
         }
 
-        return $this->normalizeFormatterOutput(
+        return static::normalizeFormatterOutput(
             $formatter,
             $formatter->formatCurrency($value, $code)
         );
     }
 
-    /**
-     * Format raw percent
-     */
-    protected function formatRawPercent(
+    protected static function formatRawPercent(
         int|float $value,
         float $total,
         int $decimals,
         string|Locale|null $locale
     ): string {
         $formatter = new NumberFormatter(
-            Cosmos::normalizeLocaleString($locale),
+            Locale::stringFrom($locale),
             NumberFormatter::PERCENT
         );
 
         $formatter->setAttribute(NumberFormatter::MAX_FRACTION_DIGITS, $decimals);
 
-        return $this->normalizeFormatterOutput(
+        return static::normalizeFormatterOutput(
             $formatter,
             $formatter->format($value / $total)
         );
     }
 
-    /**
-     * Format raw scientific
-     */
-    protected function formatRawScientific(
+    protected static function formatRawScientific(
         int|float $value,
         string|Locale|null $locale
     ): string {
         $formatter = new NumberFormatter(
-            Cosmos::normalizeLocaleString($locale),
+            Locale::stringFrom($locale),
             NumberFormatter::SCIENTIFIC
         );
 
-        return $this->normalizeFormatterOutput(
+        return static::normalizeFormatterOutput(
             $formatter,
             $formatter->format($value)
         );
     }
 
-    /**
-     * Format raw spellout
-     */
-    protected function formatRawSpellout(
+    protected static function formatRawSpellout(
         int|float $value,
         string|Locale|null $locale
     ): string {
         $formatter = new NumberFormatter(
-            Cosmos::normalizeLocaleString($locale),
+            Locale::stringFrom($locale),
             NumberFormatter::SPELLOUT
         );
 
-        return $this->normalizeFormatterOutput(
+        return static::normalizeFormatterOutput(
             $formatter,
             $formatter->format($value)
         );
     }
 
-    /**
-     * Format raw ordinal
-     */
-    protected function formatRawOrdinal(
+    protected static function formatRawOrdinal(
         int|float $value,
         string|Locale|null $locale
     ): string {
         $formatter = new NumberFormatter(
-            Cosmos::normalizeLocaleString($locale),
+            Locale::stringFrom($locale),
             NumberFormatter::ORDINAL
         );
 
-        return $this->normalizeFormatterOutput(
+        return static::normalizeFormatterOutput(
             $formatter,
             $formatter->format($value)
         );
     }
 
 
-    /**
-     * Get unicode arrow for diff
-     */
-    protected function getDiffArrow(float $diff): string
+    protected static function getDiffArrow(float $diff): string
     {
         if ($diff > 0) {
             return '⬆'; // @ignore-non-ascii
@@ -214,10 +186,7 @@ trait NumberTrait
     private const FileSizeUnits = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
 
 
-    /**
-     * Format raw filesize
-     */
-    protected function formatRawFileSize(
+    protected static function formatRawFileSize(
         int $bytes,
         string|Locale|null $locale
     ): string {
@@ -225,13 +194,10 @@ trait NumberTrait
             $bytes /= 1024;
         }
 
-        return $this->formatRawDecimal($bytes, 2, $locale) . ' ' . self::FileSizeUnits[$i];
+        return static::formatRawDecimal($bytes, 2, $locale) . ' ' . self::FileSizeUnits[$i];
     }
 
-    /**
-     * Format raw decimal filesize
-     */
-    protected function formatRawFileSizeDec(
+    protected static function formatRawFileSizeDec(
         int $bytes,
         string|Locale|null $locale
     ): string {
@@ -239,20 +205,18 @@ trait NumberTrait
             $bytes /= 1000;
         }
 
-        return $this->formatRawDecimal($bytes, 2, $locale) . ' ' . self::FileSizeUnits[$i];
+        return static::formatRawDecimal($bytes, 2, $locale) . ' ' . self::FileSizeUnits[$i];
     }
 
 
 
-    /**
-     * Format counter
-     */
-    public function counter(
+
+    public static function counter(
         int|float|string|null $counter,
         bool $allowZero = false,
         string|Locale|null $locale = null
     ): mixed {
-        if (null === ($counter = $this->normalizeNumeric($counter))) {
+        if (null === ($counter = static::normalizeNumeric($counter))) {
             return null;
         }
 
@@ -264,24 +228,21 @@ trait NumberTrait
         }
 
         if ($counter > 999999999) {
-            return $this->format(round($counter / 1000000000, 1), 'b', $locale);
+            return static::format(round($counter / 1000000000, 1), 'b', $locale);
         } elseif ($counter > 999999) {
-            return $this->format(round($counter / 1000000, 1), 'm', $locale);
+            return static::format(round($counter / 1000000, 1), 'm', $locale);
         } elseif ($counter > 9999) {
-            return $this->format(round($counter / 1000), 'k', $locale);
+            return static::format(round($counter / 1000), 'k', $locale);
         } elseif ($counter > 999) {
-            return $this->format(round($counter / 1000, 1), 'k', $locale);
+            return static::format(round($counter / 1000, 1), 'k', $locale);
         } else {
-            return $this->format($counter, null, $locale);
+            return static::format($counter, null, $locale);
         }
     }
 
 
 
-    /**
-     * Normalize numeric value
-     */
-    protected function normalizeNumeric(
+    protected static function normalizeNumeric(
         int|float|string|null $value,
         bool $checkInt = false
     ): int|float|null {
@@ -314,10 +275,8 @@ trait NumberTrait
         return $value;
     }
 
-    /**
-     * Normalize formatter output
-     */
-    protected function normalizeFormatterOutput(
+
+    protected static function normalizeFormatterOutput(
         NumberFormatter $formatter,
         string|bool $output
     ): string {

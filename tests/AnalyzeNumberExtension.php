@@ -23,7 +23,7 @@ class AnalyzeNumberExtension implements Number
      */
     use NumberTrait;
 
-    public function format(
+    public static function format(
         int|float|string|null $value,
         ?string $unit = null,
         string|Locale|null $locale = null
@@ -31,7 +31,7 @@ class AnalyzeNumberExtension implements Number
         return null;
     }
 
-    public function pattern(
+    public static function pattern(
         int|float|string|null $value,
         string $pattern,
         string|Locale|null $locale = null
@@ -39,7 +39,7 @@ class AnalyzeNumberExtension implements Number
         return null;
     }
 
-    public function decimal(
+    public static function decimal(
         int|float|string|null $value,
         ?int $precision = null,
         string|Locale|null $locale = null
@@ -47,7 +47,7 @@ class AnalyzeNumberExtension implements Number
         return null;
     }
 
-    public function currency(
+    public static function currency(
         int|float|string|null $value,
         ?string $code,
         ?bool $rounded = null,
@@ -56,7 +56,7 @@ class AnalyzeNumberExtension implements Number
         return null;
     }
 
-    public function percent(
+    public static function percent(
         int|float|string|null $value,
         float $total = 100.0,
         int $decimals = 0,
@@ -65,28 +65,28 @@ class AnalyzeNumberExtension implements Number
         return null;
     }
 
-    public function scientific(
+    public static function scientific(
         int|float|string|null $value,
         string|Locale|null $locale = null
     ): ?string {
         return null;
     }
 
-    public function spellout(
+    public static function spellout(
         int|float|string|null $value,
         string|Locale|null $locale = null
     ): ?string {
         return null;
     }
 
-    public function ordinal(
+    public static function ordinal(
         int|float|string|null $value,
         string|Locale|null $locale = null
     ): ?string {
         return null;
     }
 
-    public function diff(
+    public static function diff(
         int|float|string|null $diff,
         ?bool $invert = false,
         string|Locale|null $locale = null
@@ -94,14 +94,14 @@ class AnalyzeNumberExtension implements Number
         return null;
     }
 
-    public function fileSize(
+    public static function fileSize(
         ?int $bytes,
         string|Locale|null $locale = null
     ): ?string {
         return null;
     }
 
-    public function fileSizeDec(
+    public static function fileSizeDec(
         ?int $bytes,
         string|Locale|null $locale = null
     ): ?string {

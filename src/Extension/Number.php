@@ -19,7 +19,7 @@ interface Number
     /**
      * @return ($value is null ? null : TReturn)
      */
-    public function format(
+    public static function format(
         int|float|string|null $value,
         ?string $unit = null,
         string|Locale|null $locale = null
@@ -28,7 +28,7 @@ interface Number
     /**
      * @return ($value is null ? null : TReturn)
      */
-    public function pattern(
+    public static function pattern(
         int|float|string|null $value,
         string $pattern,
         string|Locale|null $locale = null
@@ -37,7 +37,7 @@ interface Number
     /**
      * @return ($value is null ? null : TReturn)
      */
-    public function decimal(
+    public static function decimal(
         int|float|string|null $value,
         ?int $precision = null,
         string|Locale|null $locale = null
@@ -46,7 +46,7 @@ interface Number
     /**
      * @return ($value is null ? null : TReturn)
      */
-    public function currency(
+    public static function currency(
         int|float|string|null $value,
         ?string $code,
         ?bool $rounded = null,
@@ -56,7 +56,7 @@ interface Number
     /**
      * @return ($value is null ? null : TReturn)
      */
-    public function percent(
+    public static function percent(
         int|float|string|null $value,
         float $total = 100.0,
         int $decimals = 0,
@@ -66,7 +66,7 @@ interface Number
     /**
      * @return ($value is null ? null : TReturn)
      */
-    public function scientific(
+    public static function scientific(
         int|float|string|null $value,
         string|Locale|null $locale = null
     ): mixed;
@@ -74,7 +74,7 @@ interface Number
     /**
      * @return ($value is null ? null : TReturn)
      */
-    public function spellout(
+    public static function spellout(
         int|float|string|null $value,
         string|Locale|null $locale = null
     ): mixed;
@@ -82,7 +82,7 @@ interface Number
     /**
      * @return ($value is null ? null : TReturn)
      */
-    public function ordinal(
+    public static function ordinal(
         int|float|string|null $value,
         string|Locale|null $locale = null
     ): mixed;
@@ -90,7 +90,7 @@ interface Number
     /**
      * @return ($diff is null ? null : TReturn)
      */
-    public function diff(
+    public static function diff(
         int|float|string|null $diff,
         ?bool $invert = false,
         string|Locale|null $locale = null
@@ -99,7 +99,7 @@ interface Number
     /**
      * @return ($bytes is null ? null : TReturn)
      */
-    public function fileSize(
+    public static function fileSize(
         ?int $bytes,
         string|Locale|null $locale = null
     ): mixed;
@@ -107,7 +107,7 @@ interface Number
     /**
      * @return ($bytes is null ? null : TReturn)
      */
-    public function fileSizeDec(
+    public static function fileSizeDec(
         ?int $bytes,
         string|Locale|null $locale = null
     ): mixed;
@@ -115,7 +115,7 @@ interface Number
     /**
      * @return ($counter is null ? null : TReturn)
      */
-    public function counter(
+    public static function counter(
         int|float|string|null $counter,
         bool $allowZero = false,
         string|Locale|null $locale = null
