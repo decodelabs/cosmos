@@ -5,10 +5,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Unreleased
+--
+
+---
+
+### [v0.3.0](https://github.com/decodelabs/cosmos/commits/v0.3.0) - 20th August 2025
+
 - Added Kingdom Service support
 - Added TimeZone object implementation
 - Moved helpers from context to individual classes
 - Removed Veneer dependency
+
+[Full list of changes](https://github.com/decodelabs/cosmos/compare/v0.2.3...v0.3.0)
 
 ---
 
