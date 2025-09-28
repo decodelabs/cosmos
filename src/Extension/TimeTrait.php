@@ -18,8 +18,8 @@ use DateTimeImmutable;
 use DateTimeInterface;
 use DateTimeZone;
 use DecodeLabs\Cosmos\Locale;
-use DecodeLabs\Cosmos\TimeZone;
 use DecodeLabs\Exceptional;
+use DecodeLabs\Kairos\TimeZone;
 use IntlDateFormatter;
 use Stringable;
 
