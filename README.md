@@ -15,6 +15,8 @@ Cosmos provides a simple interface to handle typical i18n tasks in your PHP app.
 
 ## Installation
 
+This package requires PHP 8.4 or higher.
+
 Install via Composer:
 
 ```bash
