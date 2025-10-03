@@ -14,7 +14,7 @@
 
         "decodelabs/exceptional": "^0.6.3",
         "decodelabs/kairos": "^0.2",
-        "decodelabs/nuance": "^0.1.9",
+        "decodelabs/nuance": "^0.2",
 
         "nesbot/carbon": "^3"
     },
