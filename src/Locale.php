@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @package Cosmos
- * @license http://opensource.org/licenses/MIT
+ * Cosmos
+ * @license https://opensource.org/licenses/MIT
  */
 
 declare(strict_types=1);
