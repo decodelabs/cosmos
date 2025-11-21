@@ -2,12 +2,14 @@
     "name": "decodelabs/cosmos",
     "description": "Internationalisation made simple",
     "type": "library",
-    "keywords": [ ],
+    "keywords": [],
     "license": "MIT",
-    "authors": [ {
+    "authors": [
+        {
             "name": "Tom Wright",
             "email": "tom@inflatablecookie.com"
-        } ],
+        }
+    ],
     "require": {
         "php": "^8.4",
         "ext-intl": "*",
@@ -19,6 +21,7 @@
         "nesbot/carbon": "^3"
     },
     "require-dev": {
+        "decodelabs/chorus": "^0.1",
         "decodelabs/phpstan-decodelabs": "^0.7"
     },
     "autoload": {
