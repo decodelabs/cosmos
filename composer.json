@@ -2,7 +2,7 @@
     "name": "decodelabs/cosmos",
     "description": "Internationalisation made simple",
     "type": "library",
-    "keywords": [],
+    "keywords": [ ],
     "license": "MIT",
     "authors": [
         {
@@ -21,7 +21,7 @@
         "nesbot/carbon": "^3"
     },
     "require-dev": {
-        "decodelabs/chorus": "^0.1",
+        "decodelabs/chorus": ">0",
         "decodelabs/phpstan-decodelabs": "^0.7"
     },
     "autoload": {
